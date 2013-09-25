@@ -7,6 +7,9 @@ import ddf.minim.*;
 import ddf.minim.analysis.*;
 import ddf.minim.effects.*;
 
+import processing.serial.*;
+Serial myPort;
+
 //Minim minim; 
 //AudioPlayer song; 
 
@@ -116,10 +119,15 @@ void crash()//if you died
  
 void setup()
 {
+  //import data
   frameRate(40);
   String[] dirarray = {sketchdir, "data/Spaceship.jpg"};
   shipimg = loadImage(join(dirarray,""));
   
+  //open serial port
+  myPort = new Serial(this, "/dev/tty.usbserial-AM01QP9U", 9600);
+  
+  //game setup
   lives = 2;
   mntRnd = new int[100];
   ammo = 3;
@@ -353,6 +361,11 @@ void efx()
 
 void draw()
 {
+  if(myPort.available() > 0){
+    Integer state = myPort.read();
+    msg(state.toString(), 2);
+  };
+    
   synth.update();
   if(mouseX < 0)
     mouseX = 0;
