@@ -28,35 +28,35 @@ public class Block
     fill(c);
     triangle(x-r, centerY+r, x, centerY-triangleHeight*r, x+r, centerY+r);//draws the block to the screen
 
-//    if(mousePressed&&get(mouseX,mouseY)==c && !blasted)//if you shoot the block //OAD
-//      shot();//OAD
+    if(mousePressed&&get(mouseX,mouseY)==c && !blasted)//if you shoot the block //OAD
+      shot();//OAD
   }
 //
-//  public void move()
-//  {
-//    r+=r*speed/100;
-//    x+=(x-mouseX)*speed/100;
-//
-//  }
-//
-//  private void shot()
-//  {
-//    if(ammo<=0)
-//    {
-//      msg("NO AMMO!",20);
-//      synth.bubble(4);
-//      return;
-//    }
-//
-//
-//    ammo--;
-//blasted=true;
-//blastcount=3;
-//synth.zapB(5);
-//    makeNew(c);
-//    if(2*r>height-400)
-//      msg("Close one!",8);
-//    else
-//      msg("Good shot!",7);
-//  }
+  public void move()
+  {
+    r+=r*speed/100;
+    x+=(x-mouseX)*speed/100;
+
+  }
+
+  private void shot()
+  {
+    if(ammo<=0)
+    {
+      msg("NO AMMO!",20);
+      synth.bubble(4);
+      return;
+    }
+
+
+    ammo--;
+blasted=true;
+blastcount=3;
+synth.zapB(5);
+    makeNew(c);
+    if(2*r>height-400)
+      msg("Close one!",8);
+    else
+      msg("Good shot!",7);
+  }
 }

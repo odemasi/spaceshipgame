@@ -51,119 +51,119 @@ public class boingyringer extends OscillatorLFOADSR
   }//method value
 } //class
 //
-//public class noisyringer3 extends OscillatorLFOADSR
-//{
-//  float vco;
-//  float op=0.; 
-//  float durb = 0;
-//  float vel = 0.; 
-//  float acc = 0.;
-//  float ovel =0.0; 
-//  float avel = 0.0;
-//  float filterMush =0.;
-//  float filt2=0.0;
-//  float filt3=0.0;
-//
-//  public noisyringer3(float frequency, float amplitude, float sampleRate)
-//  {
-//    //filterMush = 0.0;
-//    // a=0.0;
-//    super(frequency, amplitude, sampleRate);
-//    //detuna = 0.0;last=0.0;
-//  }
-//
-//  protected float value(float step){
-//    if((step>-0.78 && step<-0.53)||(step>-0.3 && step<0.76)){
-//      vco = 0.7;
-//
-//    } 
-//    else{
-//      vco = -0.46; 
-//    }
-//
-//
-//    durb = sin(radians(30*durb+50*vco/3))+vco/30;
-//    acc += -(acc-vel)/64 + durb-op*1.01;
-//    acc *=0.9;
-//    vel -=acc +(vel/4);
-//    vel *=0.2521;
-//    ovel +=vel +(ovel/4);
-//    ovel *=0.22521;
-//    avel +=ovel +(avel/5.7);
-//    avel *=0.12521;
-//    op -= avel+((cos(vel/256)/256)-ovel/8)-cos(vel/2.6+step/(((avel/12)%0.27)/32))/64.; 
-//
-//
-//
-//    filt2 = ((17*filt2+op)/18); 
-//    filt3 = (300*filt3 +filt2)/301;
-//    filterMush=(filt2-filt3);
-//
-//    //op = durb;
-//    updateLFO();
-//    return(filterMush*gain*tremLFO*4);
-//  }//method value
-//} //class
-//
-//public class nedsyringer extends OscillatorLFOADSR
-//{
-//  float vco;
-//  float op=0.; 
-//  float durb = 0;
-//  float vel = 0.; 
-//  float acc = 0.;
-//  float ovel =0.0; 
-//  float avel = 0.0;
-//  float filterMush =0.;
-//  float filt2=0.0;
-//  float filt3=0.0;
-//
-//  public nedsyringer(float frequency, float amplitude, float sampleRate)
-//  {
-//    //filterMush = 0.0;
-//    // a=0.0;
-//    super(frequency, amplitude, sampleRate);
-//    //detuna = 0.0;last=0.0;
-//  }
-//
-//  protected float value(float step){
-//    if((step>-0.78 && step<-0.73)||(step>0.41 && step<0.86)){
-//      vco = 0.7;
-//
-//    } 
-//    else{
-//      vco = -0.46; 
-//    }
-//
-//    durb = cos(radians(30*durb+50*vco/(this.frequency()/2)))+vco/30;
-//    acc += -(acc-vel)/64 + durb-op*1.01;
-//    acc *=0.9;
-//    vel -=acc +(vel/4);
-//    vel *=0.3521;
-//    ovel +=vel +(ovel/4);
-//    ovel *=0.22521;
-//    avel +=ovel +(avel/5.7);
-//    avel *=0.12521;
-//    op -= avel+((vel/8)-ovel/8)+sin(((op*vel/2+step)+( radians(this.frequency())))*5)/3.5; 
-//
-//
-//    filt2 = ((10*filt2+op)/11); 
-//    filt3 = (11000*filt3 +filt2)/11001;
-//    filterMush=(filt2-filt3);
-//
-//    //op = durb;
-//    updateLFO();
-//    return(filterMush*gain*tremLFO*3);
-//  }//method value
-//} //class
-//
-//
-//
-//
-//
-//
-//
-//
+public class noisyringer3 extends OscillatorLFOADSR
+{
+  float vco;
+  float op=0.; 
+  float durb = 0;
+  float vel = 0.; 
+  float acc = 0.;
+  float ovel =0.0; 
+  float avel = 0.0;
+  float filterMush =0.;
+  float filt2=0.0;
+  float filt3=0.0;
+
+  public noisyringer3(float frequency, float amplitude, float sampleRate)
+  {
+    //filterMush = 0.0;
+    // a=0.0;
+    super(frequency, amplitude, sampleRate);
+    //detuna = 0.0;last=0.0;
+  }
+
+  protected float value(float step){
+    if((step>-0.78 && step<-0.53)||(step>-0.3 && step<0.76)){
+      vco = 0.7;
+
+    } 
+    else{
+      vco = -0.46; 
+    }
+
+
+    durb = sin(radians(30*durb+50*vco/3))+vco/30;
+    acc += -(acc-vel)/64 + durb-op*1.01;
+    acc *=0.9;
+    vel -=acc +(vel/4);
+    vel *=0.2521;
+    ovel +=vel +(ovel/4);
+    ovel *=0.22521;
+    avel +=ovel +(avel/5.7);
+    avel *=0.12521;
+    op -= avel+((cos(vel/256)/256)-ovel/8)-cos(vel/2.6+step/(((avel/12)%0.27)/32))/64.; 
+
+
+
+    filt2 = ((17*filt2+op)/18); 
+    filt3 = (300*filt3 +filt2)/301;
+    filterMush=(filt2-filt3);
+
+    //op = durb;
+    updateLFO();
+    return(filterMush*gain*tremLFO*4);
+  }//method value
+} //class
+
+public class nedsyringer extends OscillatorLFOADSR
+{
+  float vco;
+  float op=0.; 
+  float durb = 0;
+  float vel = 0.; 
+  float acc = 0.;
+  float ovel =0.0; 
+  float avel = 0.0;
+  float filterMush =0.;
+  float filt2=0.0;
+  float filt3=0.0;
+
+  public nedsyringer(float frequency, float amplitude, float sampleRate)
+  {
+    //filterMush = 0.0;
+    // a=0.0;
+    super(frequency, amplitude, sampleRate);
+    //detuna = 0.0;last=0.0;
+  }
+
+  protected float value(float step){
+    if((step>-0.78 && step<-0.73)||(step>0.41 && step<0.86)){
+      vco = 0.7;
+
+    } 
+    else{
+      vco = -0.46; 
+    }
+
+    durb = cos(radians(30*durb+50*vco/(this.frequency()/2)))+vco/30;
+    acc += -(acc-vel)/64 + durb-op*1.01;
+    acc *=0.9;
+    vel -=acc +(vel/4);
+    vel *=0.3521;
+    ovel +=vel +(ovel/4);
+    ovel *=0.22521;
+    avel +=ovel +(avel/5.7);
+    avel *=0.12521;
+    op -= avel+((vel/8)-ovel/8)+sin(((op*vel/2+step)+( radians(this.frequency())))*5)/3.5; 
+
+
+    filt2 = ((10*filt2+op)/11); 
+    filt3 = (11000*filt3 +filt2)/11001;
+    filterMush=(filt2-filt3);
+
+    //op = durb;
+    updateLFO();
+    return(filterMush*gain*tremLFO*3);
+  }//method value
+} //class
+
+
+
+
+
+
+
+
 public class pulseWidthBP extends OscillatorLFOADSR
 {
   float vco;

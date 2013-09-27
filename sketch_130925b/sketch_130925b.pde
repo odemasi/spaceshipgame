@@ -442,18 +442,18 @@ void draw()
       pset=true;
     }
     else {
-//      synth.pw.SETFreq((55+speed*2)/1.25);
-//      synth.square2.SETFreq((55+speed*2)/1.25);
+      synth.pw.SETFreq((55+speed*2)/1.25);
+      synth.square2.SETFreq((55+speed*2)/1.25);
       if (speed>10) {
-//        synth.pw.setLFO(10+speed, 1.0);
-//        synth.square2.setLFO(13+speed, 1.0);
+        synth.pw.setLFO(10+speed, 1.0);
+        synth.square2.setLFO(13+speed, 1.0);
       }
       else {
-//        synth.pw.setLFO(speed, 0.3);
-//        synth.square2.setLFO(3.0+speed, 0.3);
+        synth.pw.setLFO(speed, 0.3);
+        synth.square2.setLFO(3.0+speed, 0.3);
       }
     }
-//    synth.comp.setLP(constrain(900-speed*100-score*3, 20, 300));//OAD
+    synth.comp.setLP(constrain(900-speed*100-score*3, 20, 300));//OAD
   };
   if (blastcount>0) {
     blastcount--;
@@ -463,8 +463,8 @@ void draw()
   }
 }
 
-//void stop() {
-//  synth.stop();
-//  super.stop();
-//}
+void stop() {
+  synth.stop();
+  super.stop();
+}
 

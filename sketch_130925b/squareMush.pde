@@ -1,29 +1,29 @@
-//public class SquareMush extends OscillatorLFOADSR
-//{
-//  float filterMush = 0.0;
-//  float a =0.0;  float b =0.0;
-//  float detuna=0.0;float last =0.0;
-//  public SquareMush(float frequency, float amplitude, float sampleRate)
-//  {
-//    //filterMush = 0.0;
-//   // a=0.0;
-//    super(frequency, amplitude, sampleRate);
-//    //detuna = 0.0;last=0.0;
-//  }
-// 
-//   protected float value(float step)
-//   {
-//     if(step>0.5){a=0.5;}else{a=(-0.5);}
-//     detuna =detuna+((step-last)*1.8);
-//
-//     last=step;
-//          if((detuna)>0.55 ||(detuna>0.0 && detuna<0.05)){b=0.3;}else{b=(-0.3);}
-//     filterMush = (2*filterMush + (a+b))/3.;
-//
-//      return (filterMush);
-//   }
-//}
-//
+public class SquareMush extends OscillatorLFOADSR
+{
+  float filterMush = 0.0;
+  float a =0.0;  float b =0.0;
+  float detuna=0.0;float last =0.0;
+  public SquareMush(float frequency, float amplitude, float sampleRate)
+  {
+    //filterMush = 0.0;
+   // a=0.0;
+    super(frequency, amplitude, sampleRate);
+    //detuna = 0.0;last=0.0;
+  }
+ 
+   protected float value(float step)
+   {
+     if(step>0.5){a=0.5;}else{a=(-0.5);}
+     detuna =detuna+((step-last)*1.8);
+
+     last=step;
+          if((detuna)>0.55 ||(detuna>0.0 && detuna<0.05)){b=0.3;}else{b=(-0.3);}
+     filterMush = (2*filterMush + (a+b))/3.;
+
+      return (filterMush);
+   }
+}
+
 public class SquareZap extends OscillatorLFOADSR
 {
   float filterMush = 0.0;
@@ -143,43 +143,43 @@ public class SquareSpike extends OscillatorLFOADSR
       return (filterMush);
    }
 }
-//
-//public class SquareBzerker extends OscillatorLFOADSR
-//{
-//  float filterMush = 0.0;
-//  float subSonic=0.0;
-//  float a =0.0;  float b =0.0;float c =0.0;float d=0.0;float e=0.0;
-//  float detuna=0.0;float last =0.0;
-//  public SquareBzerker(float frequency, float amplitude, float sampleRate)
-//  {
-//    //filterMush = 0.0;
-//   // a=0.0;
-//    super(frequency, amplitude, sampleRate);
-//    //detuna = 0.0;last=0.0;
-//  }
-// 
-//   protected float value(float step)
-//   {
-//           updateLFO();
-//      //     step +=(1/freqLFO);
-//     if(step>0.5){a=0.5;}else{a=(-0.5);}
-//     detuna =((detuna)+((step-last)*(0.1+tremLFO-gain)));//detuna %=1.0;
-// //    if(detuna>=1.0){detuna = (detuna-1.0);}
-//     last=step;
-//          if((detuna)>0.95 ||(detuna>0.25 && detuna<0.3)){b=0.5;}else{b=(-0.15);}
-//          d=(abs(a-b));
-//c = (a-b)*(d+0.01)/(d+0.0000001);
-//e = (c)*((d+0.01)/(d+0.0000001))+(abs(d-0.1));
-//     filterMush = (3*filterMush + ((e)*tremLFO*gain))/6.;
-//     subSonic =(2300*subSonic + filterMush)/2301;
-//           // this.setFreq(100+100*detuna);
-//      //   if(detuna>=1.0){detuna = (detuna-1.0);}
-//
-//    //  this.setFreq(freqLFO);
-//      return ( filterMush -(subSonic));
-//   }
-//}
-//
+
+public class SquareBzerker extends OscillatorLFOADSR
+{
+  float filterMush = 0.0;
+  float subSonic=0.0;
+  float a =0.0;  float b =0.0;float c =0.0;float d=0.0;float e=0.0;
+  float detuna=0.0;float last =0.0;
+  public SquareBzerker(float frequency, float amplitude, float sampleRate)
+  {
+    //filterMush = 0.0;
+   // a=0.0;
+    super(frequency, amplitude, sampleRate);
+    //detuna = 0.0;last=0.0;
+  }
+ 
+   protected float value(float step)
+   {
+           updateLFO();
+      //     step +=(1/freqLFO);
+     if(step>0.5){a=0.5;}else{a=(-0.5);}
+     detuna =((detuna)+((step-last)*(0.1+tremLFO-gain)));//detuna %=1.0;
+ //    if(detuna>=1.0){detuna = (detuna-1.0);}
+     last=step;
+          if((detuna)>0.95 ||(detuna>0.25 && detuna<0.3)){b=0.5;}else{b=(-0.15);}
+          d=(abs(a-b));
+c = (a-b)*(d+0.01)/(d+0.0000001);
+e = (c)*((d+0.01)/(d+0.0000001))+(abs(d-0.1));
+     filterMush = (3*filterMush + ((e)*tremLFO*gain))/6.;
+     subSonic =(2300*subSonic + filterMush)/2301;
+           // this.setFreq(100+100*detuna);
+      //   if(detuna>=1.0){detuna = (detuna-1.0);}
+
+    //  this.setFreq(freqLFO);
+      return ( filterMush -(subSonic));
+   }
+}
+
 public class SquareBoink extends OscillatorLFOADSR
 {
   float filterMush = 0.0;

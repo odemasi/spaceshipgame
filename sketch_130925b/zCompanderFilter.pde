@@ -44,20 +44,20 @@ class CompanderFilter implements AudioEffect
    lp = constrain(thLP,6.0,300.0); 
   }
 }//class
-//
-//
-//
-//
-//// arrayMult utility
-//void arrayMult(float[] target,float thMult){
-//  for(int i=0;i<target.length;i++){
-//   target[i] = thMult*target[i]; 
-//  }
-//}
-//  void arrayAdd(float[] target,float thAdd){
-//  for(int i=0;i<target.length;i++){
-//   target[i] = thAdd+target[i]; 
-//  }
-//  
-//}
+
+
+
+
+// arrayMult utility
+void arrayMult(float[] target,float thMult){
+  for(int i=0;i<target.length;i++){
+   target[i] = thMult*target[i]; 
+  }
+}
+  void arrayAdd(float[] target,float thAdd){
+  for(int i=0;i<target.length;i++){
+   target[i] = thAdd+target[i]; 
+  }
+  
+}
 
