@@ -340,16 +340,57 @@ void efx()
     centerY+=random(-shake, shake);
 }
 
+//int val = 0;
+//void serialEvent(Serial port) {
+//  // Data from the Serial port is read in serialEvent() using the read() function and assigned to the global variable: val
+//  val = port.read();
+//  // For debugging
+//  println( "Raw Input:" + val);
+//}
+  
+ 
+int currentX = 0;
+int currentY = 0;
+int currentZ = 0;
+
+void serialEvent(Serial p){
+  String inString;
+  try{
+    inString = (myPort.readString());
+    currentX = xValue(inString);
+    currentY = yValue(inString);
+    currentZ = zValue(inString);
+  }catch(Exception e){
+   println(e);
+  }
+  redraw();
+  println( "Raw Input:" + currentX + " " + currentY + " " + currentZ);
+}
+int xValue(String inString){
+  int pipeIndex = inString.indexOf('|');
+  return int(inString.substring(0,pipeIndex));
+}
+int yValue(String inString){
+  int pipeIndex = inString.indexOf('|');
+  int colonIndex = inString.indexOf(':');
+  return int(inString.substring(pipeIndex+1, colonIndex)); 
+}
+int zValue(String inString){
+  int colonIndex = inString.indexOf(':');
+  return int(inString.substring(colonIndex + 1, inString.length() - 2));
+}
+ 
+
 void draw()
 {
-  if (myPort.available() > 1) {
-//    int inByte = myPort.read();
-    println(myPort.readString());
-//    Integer state = myPort.read();
-//    println(state);
-//    msg(state.toString(), 2);
-  };
-//
+//  if (myPort.available() > 1) {
+////    println(myPort.readString()); //nearly correct
+////    println(myPort.read());
+////    Integer state = myPort.read();
+////    println(state);
+////    msg(state.toString(), 2);
+//  };
+
   synth.update();
   if (mouseX < 0)
     mouseX = 0;
