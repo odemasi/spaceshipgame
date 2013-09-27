@@ -19,7 +19,7 @@ class GameSynth {
   boingyringer ring1;
 //  noisyringer3 nring3;
 //  nedsyringer ned;
-//  pulseWidthBP pw;
+  pulseWidthBP pw;
 //  AudioSample wave; 
   float[] samples = new float[1024*8]; 
   float amp = 0.; 
@@ -829,29 +829,30 @@ class GameSynth {
 //    pw.trigger();
 //  }
 //
-//  void paranoids1(int thSpace) {
-//    //  if(synthFrame%(constrain(20-thSpace,1,20))==0){
-//    pw.resetFreq((55+thSpace*1)/1.25); 
-//    pw.SETFreq((55+thSpace*1)/1.25); 
-//    pw.setAmp(0.13 );
-//    square2.resetFreq((55+thSpace*1)/1.25); 
-//    square2.setAmp(0.10 );
-//    square2.setEnv(2.7, 4.9);
-//    square2.setAmpADSR(0.03, 0.25, 999.0, 0.2);
-//    pw.setPWLFO(0.5, 1.0);
-//    pw.setBP(90);
-//    //  pw.setBPLFO(6.63,0.3);
-//    //  pw.setEnv(2.7,4.9);
-//    pw.setAmpADSR(0.03, 0.25, 999.0, 0.2);
-//    pw.setLFO(13+thSpace, 0.5);
-//    //  pw.sweepAmp(0.0,0.5,0.15,2);
-//    //pw.sweep(2,2);
-//
-//    square2.setLFO(13+thSpace, 0.8);
-//    square2.trigger();
-//    pw.trigger();
-//    //  }
-//  }
+  void paranoids1(int thSpace) {
+    //  if(synthFrame%(constrain(20-thSpace,1,20))==0){
+      println("the speed is real: " + thSpace);
+    pw.resetFreq((55+thSpace*1)/1.25); 
+    pw.SETFreq((55+thSpace*1)/1.25); 
+    pw.setAmp(0.13 );
+    square2.resetFreq((55+thSpace*1)/1.25); 
+    square2.setAmp(0.10 );
+    square2.setEnv(2.7, 4.9);
+    square2.setAmpADSR(0.03, 0.25, 999.0, 0.2);
+    pw.setPWLFO(0.5, 1.0);
+    pw.setBP(90);
+    //  pw.setBPLFO(6.63,0.3);
+    //  pw.setEnv(2.7,4.9);
+    pw.setAmpADSR(0.03, 0.25, 999.0, 0.2);
+    pw.setLFO(13+thSpace, 0.5);
+    //  pw.sweepAmp(0.0,0.5,0.15,2);
+    //pw.sweep(2,2);
+
+    square2.setLFO(13+thSpace, 0.8);
+    square2.trigger();
+    pw.trigger();
+    //  }
+  }
 }//be cool, stay in class
 
 
