@@ -97,7 +97,7 @@ void setup()
   size(480, 120);
   println(Serial.list());
   // Open the port you are using at the rate you want:
-  myPort = new Serial(this, "/dev/tty.usbserial-AM01QMOX", 9600);
+  myPort = new Serial(this, "/dev/tty.usbserial-AM01QPD5", 9600);
   myPort.bufferUntil(10);
 
   //import data
