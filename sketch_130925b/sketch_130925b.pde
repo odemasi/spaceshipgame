@@ -233,8 +233,8 @@ void showMountains()
 //
 void showBlocks()
 {
-//  for (int n=0;blocks[n]!=null;n++)//for each block
-//    blocks[n].move();
+  for (int n=0;blocks[n]!=null;n++)//for each block
+    blocks[n].move();
 
   float increment = 2;
 

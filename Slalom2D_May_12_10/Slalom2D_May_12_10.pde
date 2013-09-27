@@ -121,7 +121,14 @@ void crash()//if you died
 
 void setup()
 {
-  
+    // List all the available serial ports:
+  println(Serial.list());
+
+  // Open the port you are using at the rate you want:
+  myPort = new Serial(this, "/dev/tty.usbserial-AM01QMOX", 9600);
+
+
+
   //import data
   frameRate(40);
   String[] dirarray = {sketchdir, "data/Spaceship.jpg"};
@@ -137,7 +144,7 @@ void setup()
   //mountains
   for (int n=0;n<100;n++)
     mntRnd[n] = (int)random(100);
-  synth.comp.setLevel(0.7);
+//  synth.comp.setLevel(0.7);
   // always start Minim first
   //  minim = new Minim(this); 
   // load a file into an AudioSnippet
@@ -153,12 +160,6 @@ void setup()
 
   size(800, 500);
   centerX = width/2;
-
-  // List all the available serial ports:
-  println(Serial.list());
-
-  // Open the port you are using at the rate you want:
-//  myPort = new Serial(this, "/dev/tty.usbserial-AM01QP9U", 9600);
 
 
   smooth();
@@ -366,13 +367,51 @@ void efx()
     centerY+=random(-shake, shake);
 }
 
+
+
+ 
+int myX = 0;
+int myY = 0;
+int myZ = 0;
+
+void serialEvent(Serial p){
+  String inString;
+  try{
+    inString = (myPort.readString());
+    myX = xValue(inString);
+    myY = yValue(inString);
+    myZ = zValue(inString);
+  }catch(Exception e){
+   println(e);
+  }
+  redraw();
+}
+int xValue(String inString){
+  int pipeIndex = inString.indexOf('|');
+  return int(inString.substring(0,pipeIndex));
+}
+int yValue(String inString){
+  int pipeIndex = inString.indexOf('|');
+  int colonIndex = inString.indexOf(':');
+  return int(inString.substring(pipeIndex+1, colonIndex)); 
+}
+int zValue(String inString){
+  int colonIndex = inString.indexOf(':');
+  return int(inString.substring(colonIndex + 1, inString.length() - 2));
+}
+ 
+/* ---------------------------- DRAW ---------------------------- */
+/* ---------------------------- DRAW ---------------------------- */
+/* ---------------------------- DRAW ---------------------------- */
 void draw()
 {
 //  if (myPort.available() > 0) {
 //    Integer state = myPort.read();
 //    msg(state.toString(), 2);
 //  };
-
+  println( "Raw Input:" + myX + " " + myY + " " + myZ);//OAD
+//  myX = myX + 1;//OAD
+  msg("myX is "+ myX, 5);//OAD
   synth.update();
   if (mouseX < 0)
     mouseX = 0;

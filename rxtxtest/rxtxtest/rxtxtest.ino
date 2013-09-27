@@ -6,5 +6,5 @@ void setup()
 void loop()
 {
   Serial.println(100);
-  delay(10);
+//  delay(10);
 }
