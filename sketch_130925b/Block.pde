@@ -29,7 +29,7 @@ public class Block
     triangle(x-r, centerY+r, x, centerY-triangleHeight*r, x+r, centerY+r);//draws the block to the screen
 
 //    if(mousePressed&&get(mouseX,mouseY)==c && !blasted)//if you shoot the block //OAD
-   if(((myZ > 400) || (myZ < 80))&&get(myX + 80, 250)==c && !blasted)//if you shoot the block //OAD
+   if(((myZ > 400) || (myZ < 80))&&get(myX + 50, 250)==c && !blasted)//if you shoot the block //OAD
 
       shot();
   }

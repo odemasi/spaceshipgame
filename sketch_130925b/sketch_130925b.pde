@@ -89,7 +89,7 @@ void crash()//if you died
   if (lives<0)
   {
     setup();
-    lvl = 1;//OAD
+    lvl = 0;//OAD
   }
 }
 
@@ -142,7 +142,7 @@ void setup()
   for (int n=0;n<level.length;n++)
     level[n] = new Stage();
 
-  level[0].message = "Slalom, by Rafael Cosman";
+  level[0].message = "Slalom, by Rafael Cosman, et al.";
   level[0].skyColor = color(255, 200, 200);
   level[0].scoreNeeded = 0;
   level[0].startingSpeed = 5.5;
@@ -155,7 +155,7 @@ void setup()
   level[1].scoreNeeded = 0;
   level[1].startingSpeed = 5.5;
   level[1].numBlocks = 30;
-  level[1].ammoUps = 0;
+  level[1].ammoUps = 10;
 
   //LEVEL 2
   level[2].message = "Level 2: Click to shoot!";
