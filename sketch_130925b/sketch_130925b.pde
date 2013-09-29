@@ -89,7 +89,7 @@ void crash()//if you died
   if (lives<0)
   {
     setup();
-    lvl = 0;
+    lvl = 1;//OAD
   }
 }
 
@@ -112,7 +112,7 @@ void setup()
   mntRnd = new int[100];
   ammo = 3;
   score = -200;
-  lvl = 0;
+  lvl = 1;//OAD
 
   //mountains
   for (int n=0;n<100;n++)
@@ -212,7 +212,7 @@ void showIntro()
 //
 void showSoundCredit()
 {
-  msg("Sound By Chris Ball", 2);
+  msg("Shoot with right hand", 2);
   //  if(mousePressed)
   //    score=0;
 }
