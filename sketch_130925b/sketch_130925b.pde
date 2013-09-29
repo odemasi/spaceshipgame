@@ -72,7 +72,7 @@ String msg;
 int msgTime;//the duration of the message
 float triangleHeight;
 PImage shipimg;
-String sketchdir = "/Users/odemasi/Dropbox/Courses/cs294-Bjoern/hw3/Slalom2D_May_12_10/";
+String sketchdir = "/Users/odemasi/Dropbox/Courses/cs294-Bjoern/hw3/sketch_130925b/";
 //
 void crash()//if you died
 {
@@ -104,7 +104,7 @@ void setup()
 
   //import data
   frameRate(40);
-  String[] dirarray = {sketchdir, "data/Spaceship.jpg"};
+  String[] dirarray = {sketchdir, "cape_hero_2.png"};
   shipimg = loadImage(join(dirarray, ""));
 
   //game setup
@@ -258,19 +258,19 @@ void showMsg()
 //
 void showShip()
 {
-//  image(shipimg, 0, 0);
-  fill(100, 200, 250);
-  ellipse(centerX, height-20, shipWidth/2, shipWidth/2);
-  line(centerX-shipWidth/2, height-5, centerX-shipWidth/3, height-50);
-  line(centerX+shipWidth/2, height-5, centerX+shipWidth/3, height-50);
-  fill(200, 200, 60);
-  ellipse(centerX, height-20, shipWidth, 5);
-  line(centerX, height-20, centerX, height-80);
-  fill(100, 200, 200);
-  ellipse(centerX, height-80, 5, 5);
-  fill(255, 0, 0);
-  triangle(centerX-shipWidth/3+3, height-50, centerX-shipWidth/3-3, height-50, centerX-shipWidth/3+2, height-60);
-  triangle(centerX+shipWidth/3+3, height-50, centerX+shipWidth/3-3, height-50, centerX+shipWidth/3-2, height-60);
+//  fill(100, 200, 250);
+//  ellipse(centerX, height-20, shipWidth/2, shipWidth/2);
+//  line(centerX-shipWidth/2, height-5, centerX-shipWidth/3, height-50);
+//  line(centerX+shipWidth/2, height-5, centerX+shipWidth/3, height-50);
+//  fill(200, 200, 60);
+//  ellipse(centerX, height-20, shipWidth, 5);
+//  line(centerX, height-20, centerX, height-80);
+//  fill(100, 200, 200);
+//  ellipse(centerX, height-80, 5, 5);
+//  fill(255, 0, 0);
+//  triangle(centerX-shipWidth/3+3, height-50, centerX-shipWidth/3-3, height-50, centerX-shipWidth/3+2, height-60);
+//  triangle(centerX+shipWidth/3+3, height-50, centerX+shipWidth/3-3, height-50, centerX+shipWidth/3-2, height-60);
+  image(shipimg, centerX - 50, height-160);
 }
 
 void showAmmo()

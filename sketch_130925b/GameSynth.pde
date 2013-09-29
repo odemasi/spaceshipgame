@@ -69,11 +69,11 @@ class GameSynth {
     sine = new SineWave(120, 0.0, 44100);                            
     sine.setFreq(120); 
     sine.portamento(20); 
-    square = new SquareZap(120, 0.0, 44100);                            
+    square = new SquareZap(120, 15, 44100);                            
     square2 = new SquareHat(120, 0.0, 44100);       
     square3 = new SquareSpike(120, 0.0, 44100);
 //  bzerk = new SquarePhase(120, 0.0, 44100);    //OAD
-    bzerk = new SquarePhase(120, 2, 44100);  
+    bzerk = new SquarePhase(120, 0, 44100);  
     boink = new SquareBoink(120, 0.0, 44100);  
     ring1 = new boingyringer(120, 0.0, 44100);
     nring3 = new noisyringer3(120, 0.0, 44100);
