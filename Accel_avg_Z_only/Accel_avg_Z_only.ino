@@ -168,7 +168,7 @@ void loop()
   Serial.print('|');
   Serial.print(Y1value);
   Serial.print(':');
-  Serial.println(Z1value);
+  Serial.println(Z2value);
   
   
 //  
