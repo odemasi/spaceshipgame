@@ -5,6 +5,7 @@
  analog 2: y-axis
  analog 3: x-axis
 
+code graphs all output from accelerometers. Used for debugging 
 */
 
 // these constants describe the pins. They won't change:
