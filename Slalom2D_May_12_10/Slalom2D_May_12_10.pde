@@ -411,7 +411,7 @@ void draw()
 //  };
   println( "Raw Input:" + myX + " " + myY + " " + myZ);//OAD
 //  myX = myX + 1;//OAD
-  msg("myX is "+ myX, 5);//OAD
+  msg("myX is "+ mouseX + "myY is " + mouseY, 5);//OAD
   synth.update();
   if (mouseX < 0)
     mouseX = 0;

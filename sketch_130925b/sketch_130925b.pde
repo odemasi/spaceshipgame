@@ -150,7 +150,7 @@ void setup()
   level[0].ammoUps = 0;
 
   //LEVEL 1
-  level[1].message = "Just dodge.";
+  level[1].message = "Level 1: Just dodge.";
   level[1].skyColor = color(255, 200, 200);
   level[1].scoreNeeded = 0;
   level[1].startingSpeed = 5.5;
@@ -158,7 +158,7 @@ void setup()
   level[1].ammoUps = 0;
 
   //LEVEL 2
-  level[2].message = "Click to shoot!";
+  level[2].message = "Level 2: Click to shoot!";
   level[2].skyColor = color(0, 0, 255);
   level[2].scoreNeeded = 500;
   level[2].startingSpeed = 3.5;
@@ -166,7 +166,7 @@ void setup()
   level[2].ammoUps = 10;
 
   //LEVEL 3
-  level[3].message = "Ready to go FAST?";
+  level[3].message = "Level 3: Ready to go FAST?";
   level[3].skyColor = color(200, 20, 80);
   level[3].scoreNeeded = 2500;
   level[3].startingSpeed = 7;
@@ -174,7 +174,7 @@ void setup()
   level[3].ammoUps = 5;
 
   //LEVEL 4
-  level[4].message = "You still alive?";
+  level[4].message = "Level 4: You still alive?";
   level[4].skyColor = color(0);
   level[4].scoreNeeded = 5000;
   level[4].startingSpeed = 6;
@@ -182,7 +182,7 @@ void setup()
   level[4].ammoUps = 10;
 
   //LEVEL 5
-  level[5].message = "LAST LEVEL!";
+  level[5].message = "Level 5: LAST LEVEL!";
   level[5].skyColor = color(255, 200, 200);
   level[5].scoreNeeded = 7000;
   level[5].startingSpeed = 10;
@@ -190,7 +190,7 @@ void setup()
   level[5].ammoUps = 5;
 
   //WIN!!!
-  level[6].message = "YOU WIN!!!";
+  level[6].message = "Level 6: YOU WIN!!!";
   level[6].scoreNeeded = 10000;//score needed to win the game
 
   level[0].initialize();
@@ -330,6 +330,14 @@ void showLives()
     text("Lives: "+lives+"!", 20, height);
 }
 
+void showCursor()
+{
+  textAlign(CENTER);
+  fill(255-lives*80, lives*80, 0);
+  textSize(48);
+  text("+", myX2, 260); 
+}
+
 void efx()
 {
   //adds a slight tint when you go fast
@@ -390,22 +398,18 @@ void draw()
 //  if (myPort.available() > 1) {
 ////    println(myPort.readString()); //nearly correct
 ////    println(myPort.read());
-////    Integer state = myPort.read();
-////    println(state);
-////    msg(state.toString(), 2);
 //  };
   println( "Raw Input:" + myX + " " + myY + " " + myZ);//OAD
-//  myX = myX + 1;//OAD
-//  msg("myX is "+ myX, 5);//OAD//jk
 
-Integer my = mouseY;
-msg(my.toString(), 5);
+//  msg("myX2 is "+ myX2, 5);//OAD//jk
+//Integer my = mouseY;
+//msg(my.toString(), 5);
   
   myX2 = myX*700/255;
 //  myX2 = mouseX;
   synth.update();
-  if (myX2 < 0)
-    myX2 = 0;
+  if (myX2 < 50)
+    myX2 = 50;
   if (myX2 > width-100)
     myX2 = width-100;
     
@@ -414,7 +418,8 @@ msg(my.toString(), 5);
 
 // mouseX = 0-700, myX = about 140 - 210, so mouseX should = 10(myX-140)
 
-  centerY = height-(mouseY+height/2)/2;
+//  centerY = height-(mouseY+height/2)/2;//OAD
+  centerY = height-(250+height/2)/2;
   centerX += (myX2-centerX)/50; //used to be mouseX
 
   efx();
@@ -431,9 +436,11 @@ msg(my.toString(), 5);
     level[lvl].initialize();//begin the level
   }
   background(level[lvl].skyColor);
+  
   showGround();
   showMountains();
   showBlocks();  
+  showCursor();
   showMsg();
   showShip();  
   if (score<=0)

@@ -28,10 +28,8 @@ public class Block
     fill(c);
     triangle(x-r, centerY+r, x, centerY-triangleHeight*r, x+r, centerY+r);//draws the block to the screen
 
-    
-
 //    if(mousePressed&&get(mouseX,mouseY)==c && !blasted)//if you shoot the block //OAD
-   if((myZ>fireThreshold)&&get(myX,300)==c && !blasted)//if you shoot the block //OAD
+   if(((myZ > 375) || (myZ< 200))&&get(myX + 50, 250)==c && !blasted)//if you shoot the block //OAD
 
       shot();
   }
@@ -40,7 +38,7 @@ public class Block
   {
     r+=r*speed/100;
 //    x+=(x-mouseX)*speed/100; //JK
-  x+=(x-myX2)*speed/100;
+    x+=(x-myX2)*speed/100;
 
   }
 
@@ -53,11 +51,10 @@ public class Block
       return;
     }
 
-
-//    ammo--; //jk
-blasted=true;
-blastcount=3;
-synth.zapB(5);
+    //    ammo--; //jk
+    blasted=true;
+    blastcount=3;
+    synth.zapB(5);
     makeNew(c);
     if(2*r>height-400)
       msg("Close one!",8);

@@ -71,8 +71,9 @@ class GameSynth {
     sine.portamento(20); 
     square = new SquareZap(120, 0.0, 44100);                            
     square2 = new SquareHat(120, 0.0, 44100);       
-    square3 = new SquareSpike(120, 0.0, 44100);  
-    bzerk = new SquarePhase(120, 0.0, 44100);  
+    square3 = new SquareSpike(120, 0.0, 44100);
+//  bzerk = new SquarePhase(120, 0.0, 44100);    //OAD
+    bzerk = new SquarePhase(120, 2, 44100);  
     boink = new SquareBoink(120, 0.0, 44100);  
     ring1 = new boingyringer(120, 0.0, 44100);
     nring3 = new noisyringer3(120, 0.0, 44100);
@@ -186,7 +187,8 @@ class GameSynth {
   }
   void zap(int thZap) {
     // square.portamento(1);
-    square.setAmp(0.15);
+//    square.setAmp(0.15);//OAD
+    square.setAmp(100);
     square.freqy = (constrain(thZap*100+360, 360, 1440));
     square.amp = (constrain((thZap%3)*2., 0.8, 0.8));
     //square.portamento(390);
@@ -197,7 +199,8 @@ class GameSynth {
   void zapB(int thZap) {
     // square.portamento(1);
     //  bzerk.reset();
-    bzerk.setAmp(0.25);
+//    bzerk.setAmp(0.25);//OAD
+    bzerk.setAmp(300);
     bzerk.SETFreq(60);
     bzerk.setLFO(5+3*thZap, 0.1);
     bzerk.setAmpADSR(0.0001, 0.43, 0.18, 0.3, 

@@ -49,7 +49,7 @@ public class Block
     }
 
 
-    ammo--;
+//    ammo--; //OAD
 blasted=true;
 blastcount=3;
 synth.zapB(5);
