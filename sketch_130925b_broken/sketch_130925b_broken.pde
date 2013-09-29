@@ -355,7 +355,7 @@ int myX = 0;
 int myY = 0;
 int myZ = 0;
 int myX2;
-int fireThreshold = 350;
+int fireThreshold = 400;
 void serialEvent(Serial p){
   String inString;
   try{
@@ -398,8 +398,7 @@ void draw()
 //  myX = myX + 1;//OAD
 //  msg("myX is "+ myX, 5);//OAD//jk
 
-Integer my = mouseY;
-msg(my.toString(), 5);
+//msg(
   
   myX2 = myX*700/255;
 //  myX2 = mouseX;

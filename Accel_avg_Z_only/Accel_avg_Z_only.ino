@@ -28,9 +28,85 @@ int Z2value = 0;
 int Offset = 20;
 int Scaling = 5;
 
+int sensorX1Min = 1023;
+int sensorX1Max = 0;
+
+int sensorX2Min = 1023;
+int sensorX2Max = 0;
+
+int sensorZ1Min = 1023;
+int sensorZ1Max = 0;
+
+int sensorZ2Min = 1023;
+int sensorZ2Max = 0;
 
 void setup()
 {
+  
+  // turn on LED to signal the start of the calibration period:
+  pinMode(13, OUTPUT);
+  digitalWrite(13, HIGH);
+
+  // calibrate during the first five seconds 
+  while (millis() < 5000) {
+    //sensorValue = analogRead(sensorPin);
+  X1value = analogRead(X1pin);
+  Y1value = analogRead(Y1pin);
+  Z1value = analogRead(Z1pin);
+  
+  X2value = analogRead(X2pin);
+  Y2value = analogRead(Y2pin);
+  Z2value = analogRead(Z2pin);
+
+
+    // record the maximum x1 value
+    if (X1value > sensorX1Max) {
+      sensorX1Max = X1value;
+    }
+
+    // record the minimum x1 value
+    if (X1value < sensorX1Min) {
+      sensorX1Min = X1value;
+    }
+    
+        // record the maximum x2 value
+    if (X2value > sensorX2Max) {
+      sensorX2Max = X2value;
+    }
+
+    // record the minimum x2 value
+    if (X2value < sensorX2Min) {
+      sensorX2Min = X2value;
+    }
+
+
+    // record the maximum x1 value
+    if (Z1value > sensorZ1Max) {
+      sensorZ1Max = Z1value;
+    }
+
+    // record the minimum x1 value
+    if (Z1value < sensorZ1Min) {
+      sensorZ1Min = Z1value;
+    }
+    
+        // record the maximum x2 value
+    if (Z2value > sensorZ2Max) {
+      sensorZ2Max = Z2value;
+    }
+
+    // record the minimum x2 value
+    if (Z2value < sensorZ2Min) {
+      sensorZ2Min = Z2value;
+    }
+
+
+    
+  }
+
+  // signal the end of the calibration period
+  digitalWrite(13, LOW);
+  
   // initialize the serial communications:
   Serial.begin(9600);
 }
@@ -43,17 +119,36 @@ void loop()
   //Gather Sensor Data;
   //Note: at 1G, values will range from -69 to +69 around these centerpoints.
   //Reasonable tilt angles will range from about -45 to +45, but use 50 to be safe.
-  X1value = analogRead(X1pin);// - 330 ;
-  Y1value = analogRead(Y1pin);// - 330 ;
-  Z1value = analogRead(Z1pin);// - 330 ;
+  X1value = analogRead(X1pin);
+  Y1value = analogRead(Y1pin);
+  Z1value = analogRead(Z1pin);
   
-  X2value = analogRead(X2pin);// - 330 ;
-  Y2value = analogRead(Y2pin);// - 330 ;
-  Z2value = analogRead(Z2pin);// - 330 ;
+  X2value = analogRead(X2pin);
+  Y2value = analogRead(Y2pin);
+  Z2value = analogRead(Z2pin);
 
+  // apply the calibration to the sensor reading
+  X1value = map(X1value, sensorX1Min, sensorX1Max, 0, 255);
+
+  // in case the sensor value is outside the range seen during calibration
+  X1value = constrain(X1value, 0, 255);
   
-  
-  //Graph all data:
+  // apply the calibration to the sensor reading
+  X2value = map(X2value, sensorX2Min, sensorX2Max, 0, 255);
+
+  // in case the sensor value is outside the range seen during calibration
+  X2value = constrain(X2value, 0, 255);
+
+//  // apply the calibration to the sensor reading
+//  Z1value = map(Z1value, sensorZ1Min, sensorZ1Max, 0, 255);
+//
+//  // in case the sensor value is outside the range seen during calibration
+//  Z1value = constrain(Z1value, 0, 255);
+
+  // fade the LED using the calibrated value:
+  analogWrite(13, X2value);
+
+//Graph all data:
           // Note: this SHOULD work, but Arduino doesn't understand parentheses in math!
           // Serial.print( ((Z1value + Z2value)/2)*(90/67) );
           // Serial.print("\t");
@@ -69,11 +164,11 @@ void loop()
 //  
   
   
-  Serial.print((X1value + X2value)/2);
+  Serial.print(X1value);
   Serial.print('|');
-  Serial.print((Y1value + Y2value)/2);
+  Serial.print(Y1value);
   Serial.print(':');
-  Serial.println((Z1value + Z2value)/2);
+  Serial.println(Z1value);
   
   
 //  
@@ -114,6 +209,6 @@ void loop()
   
   
   // delay before next reading:
-  delay(100);
+//  delay(100);
 }
 
