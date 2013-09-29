@@ -5,6 +5,8 @@
  analog 2: y-axis
  analog 3: x-axis
 
+Script graphs all accelerometer inputs. 
+Fall 2013
 */
 
 // these constants describe the pins. They won't change:
