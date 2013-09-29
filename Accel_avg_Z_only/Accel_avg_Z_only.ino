@@ -43,13 +43,13 @@ void loop()
   //Gather Sensor Data;
   //Note: at 1G, values will range from -69 to +69 around these centerpoints.
   //Reasonable tilt angles will range from about -45 to +45, but use 50 to be safe.
-  X1value = analogRead(X1pin) - 330 ;
-  Y1value = analogRead(Y1pin) - 330 ;
-  Z1value = analogRead(Z1pin) - 330 ;
+  X1value = analogRead(X1pin);// - 330 ;
+  Y1value = analogRead(Y1pin);// - 330 ;
+  Z1value = analogRead(Z1pin);// - 330 ;
   
-  X2value = analogRead(X2pin) - 330 ;
-  Y2value = analogRead(Y2pin) - 330 ;
-  Z2value = analogRead(Z2pin) - 330 ;
+  X2value = analogRead(X2pin);// - 330 ;
+  Y2value = analogRead(Y2pin);// - 330 ;
+  Z2value = analogRead(Z2pin);// - 330 ;
 
   
   

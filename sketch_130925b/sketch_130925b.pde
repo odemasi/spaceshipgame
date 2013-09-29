@@ -395,19 +395,27 @@ void draw()
 //  myX = myX + 1;//OAD
   msg("myX is "+ myX, 5);//OAD
   
+  int myX2;
+  myX2 = myX*700/255;
+  
   synth.update();
-  if (mouseX < 0)
-    mouseX = 0;
-  if (mouseX > width-100)
-    mouseX = width-100;
+  if (myX2 < 0)
+    myX2 = 0;
+  if (myX2 > width-100)
+    myX2 = width-100;
+    
+//    Integer myMouse = mouseX;
+//    println(myMouse.toString());
+
+// mouseX = 0-700, myX = about 140 - 210, so mouseX should = 10(myX-140)
 
   centerY = height-(mouseY+height/2)/2;
-  centerX += (mouseX-centerX)/50;
+  centerX += (myX2-centerX)/50; //used to be mouseX
 
   efx();
 
 //  pushMatrix();//stores the settings //OAD
-  float angle = ((float)mouseX-centerX)/width;
+  float angle = ((float)myX2-centerX)/width; //used to be mouseX
   rotate(angle);
   translate(0, -sin(angle)/2*width);
   if (lvl<level.length-1&&score>level[lvl+1].scoreNeeded)//if you beat the stage
