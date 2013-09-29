@@ -5,7 +5,7 @@
  analog 2: y-axis
  analog 3: x-axis
 
-Script graphs all accelerometer inputs. 
+Script sends accelerometer output over serial to Software. Used for game. 
 Fall 2013
 */
 
